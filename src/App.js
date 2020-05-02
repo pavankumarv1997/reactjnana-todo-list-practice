@@ -25,6 +25,9 @@ export default class App extends Component {
   handleDelete = (id) => {
     console.log(`Delete ${id}`);
   };
+  clearList = (e) => {
+    console.log("clear list");
+  };
   render() {
     return (
       <>
@@ -42,6 +45,7 @@ export default class App extends Component {
                 item={this.state.items}
                 handleEdit={this.handleEdit}
                 handleDelete={this.handleDelete}
+                clearList={this.clearList}
               />
             </div>
           </div>
