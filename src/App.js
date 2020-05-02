@@ -36,10 +36,15 @@ export default class App extends Component {
     console.log(`Edit ${id}`);
   };
   handleDelete = (id) => {
-    console.log(`Delete ${id}`);
+    const newItems = this.state.items.filter((item) => {
+      return item.id !== id;
+    });
+    this.setState({ items: newItems });
   };
   clearList = (e) => {
-    console.log("clear list");
+    this.setState({
+      items: [],
+    });
   };
   render() {
     return (
