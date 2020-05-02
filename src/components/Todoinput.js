@@ -21,6 +21,7 @@ export default class Todoinput extends Component {
             />
             <button
               type="submit"
+              disabled={item ? false : true}
               className={
                 editItem
                   ? "btn btn-success btn-block mt-3"
