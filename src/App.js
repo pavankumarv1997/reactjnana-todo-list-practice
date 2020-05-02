@@ -5,19 +5,32 @@ import Todoinput from "./components/Todoinput";
 import Todolist from "./components/Todolist";
 export default class App extends Component {
   state = {
-    items: [
-      { id: 1, title: "Wake Up" },
-      { id: 1, title: "Work Out" },
-    ],
+    items: [],
     id: uuid(),
     item: "",
     editItem: false,
   };
   handleChange = (e) => {
-    console.log("Change item");
+    this.setState({ item: e.target.value });
   };
   handleSubmit = (e) => {
-    console.log("Submit");
+    e.preventDefault();
+    const newItem = {
+      id: this.state.id,
+      item: e.target.value,
+    };
+    const updatedItems = [...this.state.items, newItem];
+    this.setState(
+      {
+        items: updatedItems,
+        item: "",
+        id: uuid(),
+        editItem: false,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   };
   handleEdit = (id) => {
     console.log(`Edit ${id}`);
