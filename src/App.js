@@ -32,7 +32,6 @@ export default class App extends Component {
       return item.id !== id;
     });
     const finditem = this.state.items.find((item) => item.id === id);
-    console.log(finditem);
     this.setState({
       items: newItems,
       item: finditem.item,
