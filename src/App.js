@@ -20,20 +20,25 @@ export default class App extends Component {
       item: this.state.item,
     };
     const updatedItems = [...this.state.items, newItem];
-    this.setState(
-      {
-        items: updatedItems,
-        item: "",
-        id: uuid(),
-        editItem: false,
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      items: updatedItems,
+      item: "",
+      id: uuid(),
+      editItem: false,
+    });
   };
   handleEdit = (id) => {
-    console.log(`Edit ${id}`);
+    const newItems = this.state.items.filter((item) => {
+      return item.id !== id;
+    });
+    const finditem = this.state.items.find((item) => item.id === id);
+    console.log(finditem);
+    this.setState({
+      items: newItems,
+      item: finditem.item,
+      id: id,
+      editItem: true,
+    });
   };
   handleDelete = (id) => {
     const newItems = this.state.items.filter((item) => {
