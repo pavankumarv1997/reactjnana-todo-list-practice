@@ -17,7 +17,7 @@ export default class App extends Component {
     e.preventDefault();
     const newItem = {
       id: this.state.id,
-      item: e.target.value,
+      item: this.state.item,
     };
     const updatedItems = [...this.state.items, newItem];
     this.setState(
@@ -55,7 +55,7 @@ export default class App extends Component {
                 editItem={this.state.editItem}
               />
               <Todolist
-                item={this.state.items}
+                items={this.state.items}
                 handleEdit={this.handleEdit}
                 handleDelete={this.handleDelete}
                 clearList={this.clearList}
